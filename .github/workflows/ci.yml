@@ -2,25 +2,25 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #OS
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4 #v4=version 4
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
+    - name: Set up JDK 17 #Java Development Kit
+      uses: actions/setup-java@v4 #install java inside the virtual machine(ubuntu-latest)
       with:
-        distribution: 'adopt'
+        distribution: 'adopt' 
         java-version: '17'
 
-    - name: Build with Gradle
+    - name: Build with Gradle 
       run: gradle build 
 
     - name: Upload Build Artifacts
